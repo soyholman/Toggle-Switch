@@ -1,0 +1,94 @@
+$color1:#7984ff;
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,500;1,500;1,600&display=swap");
+*{
+
+    padding: 0;
+    margin: 0;
+ box-sizing: border-box;   
+ font-family: 'Poppins',serif;
+}
+
+body{
+
+    background: #f4f4f4;
+}
+@mixin keyframes($animation-name) {
+   
+    @keyframes #{$animation-name} {
+      @content;
+    }
+  }
+
+  
+
+
+.container{
+
+
+    display: flex;
+    padding-top: 20%;
+    height: 100vh;
+    align-content: center;
+    justify-content: center;
+ 
+medium{
+padding-right: 23px;
+
+animation: anim  3s ease-in ;
+}
+
+.switch{
+
+
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+    background-color: rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+    transition: all 0.3s;
+}
+.switch::after{
+
+    content: '';
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border-radius: 18px;
+  background-color: white;
+  top: 1px;
+  left: 1px;
+  transition: all 0.3s;
+}
+
+
+input[type='checkbox']:checked+ .switch::after{
+
+    transform: translateX(20px);
+    
+}
+
+input[type='checkbox']:checked + .switch{
+
+    background:$color1;
+    
+    @include keyframes(anim) {
+        0% {
+          opacity: 0;
+          transform: translateZ(-70px);
+        }
+        100% {
+    
+        transform: translateX(0px);
+          opacity: 1;
+        }
+      }
+}
+
+.offscreen{
+
+    position: absolute;
+    left: -999px;
+}
+
+}
